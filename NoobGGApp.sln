@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35327.3
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{368F8DF9-B10E-4407-BDF0-1ECA6C3BCF93}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{A1F01F8B-B716-4A52-A7FC-4E86A2FC11E2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoobGGApp.Domain", "src\NoobGGApp.Domain\NoobGGApp.Domain.csproj", "{1DBF361D-4900-4E0F-98B5-A11746C6E8EB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1DBF361D-4900-4E0F-98B5-A11746C6E8EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1DBF361D-4900-4E0F-98B5-A11746C6E8EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1DBF361D-4900-4E0F-98B5-A11746C6E8EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1DBF361D-4900-4E0F-98B5-A11746C6E8EB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{1DBF361D-4900-4E0F-98B5-A11746C6E8EB} = {368F8DF9-B10E-4407-BDF0-1ECA6C3BCF93}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {61CFADF5-3EB7-44E7-84D0-392293A7D18B}
+	EndGlobalSection
+EndGlobal
