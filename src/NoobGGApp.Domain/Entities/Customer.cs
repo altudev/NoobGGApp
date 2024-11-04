@@ -1,4 +1,3 @@
-using System;
 using NoobGGApp.Domain.Common.Entities;
 using NoobGGApp.Domain.ValueObjects;
 

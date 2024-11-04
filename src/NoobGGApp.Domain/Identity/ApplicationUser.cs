@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Identity;
 using NoobGGApp.Domain.Common.Entities;
+using NoobGGApp.Domain.Entities;
 
 namespace NoobGGApp.Domain.Identity;
 
