@@ -1,3 +1,4 @@
+using FluentValidation;
 using MediatR;
 using NoobGGApp.Application.Common.Interfaces;
 using NoobGGApp.Domain.Entities;
