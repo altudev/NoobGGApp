@@ -10,24 +10,25 @@ public sealed record GameRegionGetByIdDto
     public long GameId { get; set; }
     public string GameName { get; set; }
 
-    public static GameRegionGetByIdDto Create(GameRegion gameRegion) // GameRegionGetByIdDto.Create(gameRegion)
+    public static GameRegionGetByIdDto Create(long id, string name, string code, long gameId, string gameName)
     {
         return new GameRegionGetByIdDto
         {
-            Id = gameRegion.Id,
-            Name = gameRegion.Name,
-            Code = gameRegion.Code,
-            GameId = gameRegion.GameId,
-            GameName = gameRegion.Game.Name,
+            Id = id,
+            Name = name,
+            Code = code,
+            GameId = gameId,
+            GameName = gameName,
         };
     }
 
-    public GameRegionGetByIdDto(long id, string name, string code, long gameId)
+    public GameRegionGetByIdDto(long id, string name, string code, long gameId, string gameName)
     {
         Id = id;
         Name = name;
         Code = code;
         GameId = gameId;
+        GameName = gameName;
     }
 
     public GameRegionGetByIdDto()

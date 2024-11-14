@@ -19,5 +19,5 @@ public abstract class EntityBase<TKey> : IEntity<TKey>, ICreatedByEntity, IModif
 
     public void RaiseDomainEvent(IDomainEvent domainEvent) => _domainEvents.Add(domainEvent);
 
-    protected void ClearDomainEvents() => _domainEvents.Clear();
+    public void ClearDomainEvents() => _domainEvents.Clear();
 }

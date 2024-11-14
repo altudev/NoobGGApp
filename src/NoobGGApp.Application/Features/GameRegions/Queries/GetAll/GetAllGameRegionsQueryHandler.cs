@@ -29,7 +29,7 @@ public sealed class GetAllGameRegionsQueryHandler : IRequestHandler<GetAllGameRe
 
         return query
         .AsNoTracking()
-        .Select(x => GameRegionGetAllDto.Create(x))
+        .Select(x => new GameRegionGetAllDto(x.Id, x.Name, x.Code, x.GameId))
         .ToListAsync(cancellationToken);
     }
 
