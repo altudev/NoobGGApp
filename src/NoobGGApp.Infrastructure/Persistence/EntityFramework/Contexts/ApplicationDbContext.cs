@@ -1,12 +1,14 @@
 using MediatR;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using NoobGGApp.Application.Common.Interfaces;
 using NoobGGApp.Domain.Common.Entities;
 using NoobGGApp.Domain.Entities;
+using NoobGGApp.Domain.Identity;
 
 namespace NoobGGApp.Infrastructure.Persistence.EntityFramework.Contexts;
 
-public class ApplicationDbContext : DbContext, IApplicationDbContext
+public class ApplicationDbContext : IdentityDbContext<ApplicationUser, ApplicationRole, long, ApplicationUserClaim, ApplicationUserRole, ApplicationUserLogin, ApplicationRoleClaim, ApplicationUserToken>, IApplicationDbContext
 {
     private readonly IPublisher _publisher;
 
@@ -17,6 +19,14 @@ public class ApplicationDbContext : DbContext, IApplicationDbContext
 
     public DbSet<GameRegion> GameRegions { get; set; }
     public DbSet<Game> Games { get; set; }
+
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        base.OnModelCreating(modelBuilder);
+
+        modelBuilder.ApplyConfigurationsFromAssembly(typeof(ApplicationDbContext).Assembly);
+    }
 
 
     public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)

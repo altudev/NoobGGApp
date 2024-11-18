@@ -10,9 +10,7 @@ public sealed class Game : EntityBase<long>
     public string ImageUrl { get; set; }
 
 
-    public Game()
-    {
-        Id = TsidCreator.GetTsid().ToLong();
-    }
+    public ICollection<GameRegion> GameRegions { get; set; } = [];
+
 
 }
