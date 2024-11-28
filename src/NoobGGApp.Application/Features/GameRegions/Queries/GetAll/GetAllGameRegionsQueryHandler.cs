@@ -18,8 +18,7 @@ public sealed class GetAllGameRegionsQueryHandler : IRequestHandler<GetAllGameRe
     {
         var query = _context.GameRegions.AsQueryable();
 
-        if (request.GameId.HasValue)
-            query = query.Where(x => x.GameId == request.GameId);
+        query = query.Where(x => x.GameId == request.GameId);
 
         if (!string.IsNullOrEmpty(request.Name))
             query = query.Where(x => x.Name.ToLower().Contains(request.Name.ToLower()));

@@ -17,6 +17,8 @@ public static class DependencyInjection
 
             config.AddBehavior(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
 
+            config.AddBehavior(typeof(IPipelineBehavior<,>), typeof(CachingBehavior<,>));
+
             // config.AddOpenBehavior(typeof(ValidationBehavior<,>));
         });
 
