@@ -5,11 +5,11 @@
     "dotnet lambda help",
     "All the command line options for the Lambda command can be specified in this file."
   ],
-  "profile": "",
-  "region": "",
+  "profile": "yazilimacademy-admin-account",
+  "region": "eu-north-1",
   "configuration": "Release",
   "function-runtime": "dotnet8",
-  "function-memory-size": 256,
+  "function-memory-size": 128,
   "function-timeout": 30,
   "function-handler": "NoobGGApp.EmailQueueService::NoobGGApp.EmailQueueService.Function::FunctionHandler"
 }
