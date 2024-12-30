@@ -56,5 +56,21 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser, Applicati
 
             entity.ClearDomainEvents();
         }
+
+        var identityUserDomainEvents = ChangeTracker
+        .Entries<IdentityUserBase<long>>()
+        .Select(e => e.Entity)
+        .Where(e => e.GetDomainEvents().Any())
+        .ToArray();
+
+        foreach (var entity in identityUserDomainEvents)
+        {
+            var events = entity.GetDomainEvents();
+
+            foreach (var domainEvent in events)
+                await _publisher.Publish(domainEvent, cancellationToken);
+
+            entity.ClearDomainEvents();
+        }
     }
 }

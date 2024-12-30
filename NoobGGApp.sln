@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoobGGApp.Infrastructure", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoobGGApp.WebApi", "src\NoobGGApp.WebApi\NoobGGApp.WebApi.csproj", "{B4C02B86-BF77-4079-B76B-A4E97CEC08A4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoobGGApp.EmailQueueService", "src\NoobGGApp.EmailQueueService\src\NoobGGApp.EmailQueueService\NoobGGApp.EmailQueueService.csproj", "{E6853EA0-DEFD-4B5D-9C02-A23E586ADFB6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,6 +39,10 @@ Global
 		{B4C02B86-BF77-4079-B76B-A4E97CEC08A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B4C02B86-BF77-4079-B76B-A4E97CEC08A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B4C02B86-BF77-4079-B76B-A4E97CEC08A4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E6853EA0-DEFD-4B5D-9C02-A23E586ADFB6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E6853EA0-DEFD-4B5D-9C02-A23E586ADFB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E6853EA0-DEFD-4B5D-9C02-A23E586ADFB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E6853EA0-DEFD-4B5D-9C02-A23E586ADFB6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -46,6 +52,7 @@ Global
 		{33853B80-337B-4945-8324-94BAE3C8B7A0} = {368F8DF9-B10E-4407-BDF0-1ECA6C3BCF93}
 		{E8F27322-C76E-45C5-A9C7-7938BC03DCD5} = {368F8DF9-B10E-4407-BDF0-1ECA6C3BCF93}
 		{B4C02B86-BF77-4079-B76B-A4E97CEC08A4} = {368F8DF9-B10E-4407-BDF0-1ECA6C3BCF93}
+		{E6853EA0-DEFD-4B5D-9C02-A23E586ADFB6} = {368F8DF9-B10E-4407-BDF0-1ECA6C3BCF93}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {61CFADF5-3EB7-44E7-84D0-392293A7D18B}

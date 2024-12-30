@@ -1,8 +1,10 @@
 
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using NoobGGApp.Application.Common.Interfaces;
+using NoobGGApp.Domain.Identity;
 using NoobGGApp.Domain.Settings;
 using NoobGGApp.Infrastructure.Persistence.EntityFramework.Contexts;
 using NoobGGApp.Infrastructure.Services;
@@ -39,6 +41,26 @@ public static class DependencyInjection
             ConnectionMultiplexer.Connect(configuration.GetConnectionString("Redis")));
 
         services.Configure<S3Settings>(bind => configuration.GetSection("S3Settings").Bind(bind));
+
+        services.AddIdentity<ApplicationUser, ApplicationRole>(options =>
+          {
+              options.User.RequireUniqueEmail = true;
+
+              options.Password.RequireNonAlphanumeric = false;
+              options.Password.RequireUppercase = false;
+              options.Password.RequireLowercase = false;
+              options.Password.RequireDigit = false;
+              options.Password.RequiredUniqueChars = 0;
+              options.Password.RequiredLength = 6;
+          })
+          .AddEntityFrameworkStores<ApplicationDbContext>()
+          .AddDefaultTokenProviders();
+
+        services.AddScoped<IMessageQueueService, AwsSQSManager>();
+
+        services.AddScoped<IIdentityService, IdentityManager>();
+
+        services.Configure<SQSSettings>(bind => configuration.GetSection("SQSSettings").Bind(bind));
 
         return services;
     }
