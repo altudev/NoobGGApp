@@ -60,7 +60,9 @@ public static class DependencyInjection
 
         services.AddScoped<IIdentityService, IdentityManager>();
 
-        services.Configure<SQSSettings>(bind => configuration.GetSection("SQSSettings").Bind(bind));
+        services.Configure<AWSSettings>(bind => configuration.GetSection("AWSSettings").Bind(bind));
+
+        services.AddScoped<IMessagePublisher, AwsSNSManager>();
 
         return services;
     }

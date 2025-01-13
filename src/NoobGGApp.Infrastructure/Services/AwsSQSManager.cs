@@ -12,11 +12,11 @@ namespace NoobGGApp.Infrastructure.Services;
 public sealed class AwsSQSManager : IMessageQueueService
 {
     private readonly IAmazonSQS _sqsClient;
-    private readonly SQSSettings _settings;
+    private readonly AWSSettings _settings;
 
-    public AwsSQSManager(IOptions<SQSSettings> settings)
+    public AwsSQSManager(IOptions<AWSSettings> settings)
     {
-        _sqsClient = new AmazonSQSClient(settings.Value.AccessKey, settings.Value.SecretKey, Amazon.RegionEndpoint.GetBySystemName(settings.Value.Region));
+        _sqsClient = new AmazonSQSClient(settings.Value.SQSSettings.AccessKey, settings.Value.SQSSettings.SecretKey, Amazon.RegionEndpoint.GetBySystemName(settings.Value.SQSSettings.Region));
 
         _settings = settings.Value;
     }
@@ -25,7 +25,7 @@ public sealed class AwsSQSManager : IMessageQueueService
     {
         var messageBody = JsonSerializer.Serialize(message);
 
-        var sendMessageRequest = new SendMessageRequest(_settings.EmailQueueUrl, messageBody);
+        var sendMessageRequest = new SendMessageRequest(_settings.SQSSettings.EmailQueueUrl, messageBody);
 
         return _sqsClient.SendMessageAsync(sendMessageRequest, cancellationToken);
     }

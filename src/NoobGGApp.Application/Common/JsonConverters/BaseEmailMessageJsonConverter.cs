@@ -4,7 +4,7 @@ using System.Text.Json.Serialization;
 using NoobGGApp.Application.Common.Models.Queues;
 using NoobGGApp.Application.Features.Auth.Commands.Register;
 
-namespace NoobGGApp.EmailQueueService;
+namespace NoobGGApp.Application.Common.JsonConverters;
 
 public class BaseEmailMessageJsonConverter : JsonConverter<BaseEmailMessage>
 {

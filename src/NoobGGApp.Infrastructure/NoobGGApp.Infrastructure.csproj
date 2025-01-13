@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <PackageReference Include="AWSSDK.S3" Version="3.7.410.8" />
+    <PackageReference Include="AWSSDK.SimpleNotificationService" Version="3.7.400.72" />
     <PackageReference Include="AWSSDK.SQS" Version="3.7.400.69" />
     <PackageReference Include="EFCore.NamingConventions" Version="8.0.3" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.10" />
