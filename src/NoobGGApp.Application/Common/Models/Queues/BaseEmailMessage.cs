@@ -1,6 +1,6 @@
 namespace NoobGGApp.Application.Common.Models.Queues;
 
-public abstract class BaseEmailMessage
+public class BaseEmailMessage
 {
     public EmailMessageType MessageType { get; set; } = default!; // UserRegistered, ForgotPassword, etc.
 

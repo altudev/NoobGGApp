@@ -40,6 +40,8 @@ namespace NoobGGApp.Infrastructure.Services
                 Message = messageBody
             };
 
+            Console.WriteLine($"Message: {messageBody}");
+
             return _snsClient.PublishAsync(publishRequest, cancellationToken);
         }
     }

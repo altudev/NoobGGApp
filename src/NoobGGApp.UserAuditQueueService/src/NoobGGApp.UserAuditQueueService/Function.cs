@@ -24,7 +24,7 @@ public class Function
     /// </summary>
     public Function()
     {
-        _dynamoDbTableName = Environment.GetEnvironmentVariable("dynamodb_auditlogs_tablename")!;
+        _dynamoDbTableName = Environment.GetEnvironmentVariable("dynamodb_auditlogs_tablename")!.Trim();
 
 
         var config = new AmazonDynamoDBConfig
@@ -60,13 +60,10 @@ public class Function
         {
             var baseEmailMessage = JsonSerializer.Deserialize<BaseEmailMessage>(message.Body);
 
-
             switch (baseEmailMessage.MessageType)
             {
                 case EmailMessageType.UserRegistered:
-                    context.Logger.LogInformation($"Exception for Alihan!");
-
-
+                    context.Logger.LogInformation($"User Registered for {baseEmailMessage.MessageType}!");
 
                     await PutItemAsync(baseEmailMessage, context);
                     break;
@@ -97,6 +94,8 @@ public class Function
     {
         var item = new Dictionary<string, AttributeValue>
         {
+            ["user_id"] = new AttributeValue { S = "1234456" }, // Add this
+            ["created_at"] = new AttributeValue { N = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds().ToString() }, // Add this
             ["MessageType"] = new AttributeValue { S = message.MessageType.ToString() },
             ["Message"] = new AttributeValue { S = JsonSerializer.Serialize(message) },
         };

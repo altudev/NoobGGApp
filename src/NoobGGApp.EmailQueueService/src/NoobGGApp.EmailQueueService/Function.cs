@@ -63,7 +63,6 @@ public class Function
             switch (baseEmailMessage.MessageType)
             {
                 case EmailMessageType.UserRegistered:
-                    context.Logger.LogInformation($"Exception for Alihan!");
 
                     await HandleUserRegisteredMessageAsync(message.Body, context);
                     break;
@@ -75,13 +74,10 @@ public class Function
         }
         catch (Exception ex)
         {
-            context.Logger.LogError($"Error processing message {message.Body}: {ex.Message}");
-            throw ex;
+            context.Logger.LogError($"Error processing message {message.Body}: {ex}");
+            throw;
         }
 
-        // throw new Exception("Alihan");
-
-        // TODO: Do interesting work based on the new message
         await Task.CompletedTask;
     }
 
