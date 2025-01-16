@@ -4,8 +4,6 @@ using NoobGGApp.Application.Features.GameRegions.Queries.GetAll;
 
 namespace NoobGGApp.WebApi.Controllers
 {
-    [Route("api/gameregions")]
-    [ApiController]
     public class GameRegionsController : ControllerBase
     {
         private readonly ISender _mediatr;

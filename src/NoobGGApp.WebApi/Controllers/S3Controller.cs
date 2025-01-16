@@ -1,4 +1,5 @@
-using Microsoft.AspNetCore.Http;
+
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using NoobGGApp.Application.Common.Interfaces;
 using NoobGGApp.Application.Common.Models.ObjectStorage;
@@ -6,13 +7,12 @@ using NoobGGApp.WebApi.Models;
 
 namespace NoobGGApp.WebApi.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class S3Controller : ControllerBase
+
+    public class S3Controller : ApiControllerBase
     {
         private readonly IObjectStorage _objectStorage;
 
-        public S3Controller(IObjectStorage objectStorage)
+        public S3Controller(ISender mediator, IObjectStorage objectStorage) : base(mediator)
         {
             _objectStorage = objectStorage;
         }

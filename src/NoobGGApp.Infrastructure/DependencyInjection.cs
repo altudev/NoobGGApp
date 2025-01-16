@@ -6,6 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 using NoobGGApp.Application.Common.Interfaces;
 using NoobGGApp.Domain.Identity;
 using NoobGGApp.Domain.Settings;
+using NoobGGApp.Infrastructure.Persistence.Dapper;
 using NoobGGApp.Infrastructure.Persistence.EntityFramework.Contexts;
 using NoobGGApp.Infrastructure.Services;
 using StackExchange.Redis;
@@ -35,6 +36,8 @@ public static class DependencyInjection
         services.AddScoped<ICacheInvalidator, CacheInvalidator>();
 
         services.AddScoped<IObjectStorage, S3ObjectStorageManager>();
+
+        services.AddScoped<ISqlConnectionFactory, SqlConnectionFactory>();
 
         // Register Redis connection for advanced operations
         services.AddSingleton<IConnectionMultiplexer>(sp =>
